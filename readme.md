@@ -1,4 +1,4 @@
-#increase-version
+# increase-version
 
 Automaticaly increase version in
 
@@ -8,7 +8,7 @@ Automaticaly increase version in
 
 Script find in package.json property version.
 
-##params
+## params
 
 * --package-json=./package.json
 * --dockerfile=./Dockerfile
@@ -18,7 +18,7 @@ Script find in package.json property version.
 * --version-up=minor ... 2.(1🔺).0
 * --version-up=build ... 2.1.(0🔺) default
 
-##examples js
+## examples js
 ```javascript
 const increaseVersion = require('increase-version');
 
@@ -31,7 +31,7 @@ async function increase() {
 
 ```  
 
-##examples bash
+## examples bash
 ```bash 
 # only package.json
 node invcreaseVersion.js --package-json=./package.json
