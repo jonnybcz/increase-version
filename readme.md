@@ -23,7 +23,9 @@ Script find in package.json property version.
 const increaseVersion = require('increase-version');
 
 async function increase() {
-    const versions = await version.getVersion(pathOfPackageJson);
+    const oldVersion = await version.getVersion(pathOfPackageJson);
+    const newVersion = version.changeVersion(oldVersion, program.versionUp);
+    const versions = { old: oldVersion, new: newVersion };
     
     increaseVersion.json(pathOfPackageJson, versions);
     increaseVersion.dockerfile(pathOfDockerfile, versions);    
