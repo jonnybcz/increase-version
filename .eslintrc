@@ -1,0 +1,16 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "id-length": ["error", {"min": 2, "exceptions": ["_", "i", "j", "k", "l"]}],
+        "max-len": [1, 150],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "no-param-reassign": ["error", { "props": false }],
+        "no-underscore-dangle": "off",
+        "no-plusplus": "off",
+        "no-await-in-loop": "off",
+        "no-restricted-syntax": "off",
+        "no-continue": "off",
+        "strict": "off",
+        "no-confusing-arrow": "off"
+    }
+}
