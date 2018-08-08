@@ -36,12 +36,12 @@ async function increase() {
 ## examples bash
 ```bash 
 # only package.json
-node invcreaseVersion.js --package-json=./package.json
+increase-version --package-json=./package.json
 ```  
 
 ```bash 
 # package.json with Dockerfile
-node invcreaseVersion.js \ 
+increase-version \ 
 --package-json=./package.json.example \
 --dockerfile=./Dockerfile 
 ```  
