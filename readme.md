@@ -18,18 +18,22 @@ Script find in package.json property version.
 * --version-up=minor ... 2.(1🔺).0
 * --version-up=build ... 2.1.(0🔺) default
 
-## examples js
+## example js
 ```javascript
 const increaseVersion = require('increase-version');
 
 async function increase() {
-    const oldVersion = await version.getVersion(pathOfPackageJson);
-    const newVersion = version.changeVersion(oldVersion, program.versionUp);
+    const pathOfPackageJson = './package.json';
+    const pathOfDockerfile = './Dockerfile';
+    const oldVersion = await increaseVersion.getVersionOfPackageJson(pathOfPackageJson);
+    const newVersion = increaseVersion.changeVersion(oldVersion, increaseVersion.constants.type.BUILD);
     const versions = { old: oldVersion, new: newVersion };
-    
+
     increaseVersion.json(pathOfPackageJson, versions);
-    increaseVersion.dockerfile(pathOfDockerfile, versions);    
-} 
+    increaseVersion.dockerfile(pathOfDockerfile, versions);
+}
+
+increase();
 
 ```  
 
