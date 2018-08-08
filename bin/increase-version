@@ -4,14 +4,15 @@ const program = require('commander');
 const packageJsonFile = require('../package.json');
 const packageJson = require('../lib/files/packageJson');
 const dockerfile = require('../lib/files/dockerfile');
+const yaml = require('../lib/files/yaml');
 const version = require('../lib/version');
 
 program
     .version(packageJsonFile.version)
     .option('-p, --package-json <file>', 'File package.json')
     .option('-d, --dockerfile [file]', 'File Dockerfile')
-    .option('-y, --yaml', 'File yaml')
-    .option('-t, --template-yaml', 'File template for yaml')
+    .option('-y, --yaml [file]', 'File yaml')
+    .option('-t, --template-yaml [file]', 'File template for yaml')
     .option('-u, --version-up [type]', 'Increase number in version [major, minor, build]', /^(major|minor|build)$/i, 'build')
     .parse(process.argv);
 
@@ -25,7 +26,9 @@ program
 
         if (program.dockerfile) {
             await dockerfile.increaseVersion(program.dockerfile, versions);
-
+        }
+        if (program.yaml) {
+            await yaml.increaseVersion(program.templateYaml, program.yaml, versions);
         }
     } catch (err) {
         console.log(err.toString());
