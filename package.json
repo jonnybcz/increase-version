@@ -1,6 +1,6 @@
 {
   "name": "increase-version",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Automaticaly increase version in files (package.json, Dockerfile, yaml)",
   "main": "index.js",
   "scripts": {
